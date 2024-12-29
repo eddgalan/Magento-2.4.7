@@ -67,13 +67,14 @@
         "dg/bypass-finals": "^1.4",
         "friendsofphp/php-cs-fixer": "^3.22",
         "lusitanian/oauth": "^0.8",
-        "magento/magento-coding-standard": "*",
+        "magento/magento-coding-standard": "^36.0",
         "magento/magento2-functional-testing-framework": "^4.7",
         "pdepend/pdepend": "^2.10",
         "phpmd/phpmd": "^2.12",
         "phpstan/phpstan": "^1.9",
         "phpunit/phpunit": "^9.5",
         "sebastian/phpcpd": "^6.0",
+        "squizlabs/php_codesniffer": "^3.11",
         "symfony/finder": "^6.4"
     },
     "conflict": {
