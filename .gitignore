@@ -1,45 +1,69 @@
-#--------------------------#
-# Magento Default Files    #
-#--------------------------#
+# Ignorar configuraciones específicas del entorno
+/.env.php
+/nginx.conf.sample
 
-/PATCH_*.sh
+# Ignorar carpetas de caché y logs
+/var/cache/*
+/var/composer_home/*
+/var/generation/*
+/var/page_cache/*
+/var/view_preprocessed/*
+/var/log/*
+/var/report/*
+/var/tmp/*
+/var/session/*
 
-/app/etc/local.xml
+# Ignorar archivos de compilación y dependencias generadas
+/pub/static/*
+!/pub/static/.htaccess
+/generated/*
+!/generated/.htaccess
 
-/media/*
-!/media/.htaccess
+# Ignorar extensiones locales y configuraciones
+/app/etc/env.php
+/app/etc/config.php
 
-!/media/customer
-/media/customer/*
-!/media/customer/.htaccess
+# Ignorar archivos de Composer y dependencias generadas
+/vendor/*
+/composer.lock
 
-!/media/dhl
-/media/dhl/*
-!/media/dhl/logo.jpg
+# Ignorar archivos de configuración de herramientas
+/.idea
+/.vscode
+/.phpstorm.meta.php
+/.buildpath
+/.project
+/.settings
+/.toolstarget
+/node_modules
+/.sass-cache
+/.pnp
+/.pnp.js
 
-!/media/downloadable
-/media/downloadable/*
-!/media/downloadable/.htaccess
+# Ignorar archivos temporales del sistema operativo
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
 
-!/media/xmlconnect
-/media/xmlconnect/*
+# Ignorar carpetas de prueba y ejemplos
+/dev/tests/integration/tmp/*
+/dev/tests/acceptance/tmp/*
+/dev/tests/unit/tmp/*
+/dev/tests/static/report/*
+/dev/tests/static/tmp/*
+/setup/config/application.config.php
 
-!/media/xmlconnect/custom
-/media/xmlconnect/custom/*
-!/media/xmlconnect/custom/ok.gif
+# Ignorar archivos subidos por el usuario (media)
+/pub/media/*
+!/pub/media/.htaccess
 
-!/media/xmlconnect/original
-/media/xmlconnect/original/*
-!/media/xmlconnect/original/ok.gif
+# Ignorar archivos de seguridad y copias de respaldo
+*.sql
+*.tgz
+*.gz
+*.zip
+*.tar
 
-!/media/xmlconnect/system
-/media/xmlconnect/system/*
-!/media/xmlconnect/system/ok.gif
-
-/var/*
-!/var/.htaccess
-
-!/var/package
-/var/package/*
-!/var/package/*.xml
-
+# Ignorar binarios
+/bin/magento
