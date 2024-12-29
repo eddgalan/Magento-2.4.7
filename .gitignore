@@ -67,3 +67,6 @@ Thumbs.db
 
 # Ignorar binarios
 /bin/magento
+
+/services/*
+/var/.regenerate

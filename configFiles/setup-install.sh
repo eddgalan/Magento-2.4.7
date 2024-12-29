@@ -1,0 +1,20 @@
+bin/magento setup:install \
+--base-url=http://localhost:8080 \
+--db-host=mage_mysql \
+--db-name=magento \
+--db-user=root \
+--db-password=12345678a \
+--admin-firstname=edson \
+--admin-lastname=galan \
+--admin-email=edd.galan@hotmail.com \
+--admin-user=admin \
+--admin-password=12345678a \
+--language=en_US \
+--currency=MXN \
+--timezone=America/Chicago \
+--use-rewrites=1 \
+--search-engine=elasticsearch7 \
+--elasticsearch-host=mage_elasticsearch7 \
+--elasticsearch-port=9200 \
+--elasticsearch-index-prefix=magento2 \
+--elasticsearch-timeout=15

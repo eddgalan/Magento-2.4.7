@@ -28,7 +28,9 @@ RUN docker-php-ext-install \
       zip \
       sockets
 # Config
+RUN a2enmod rewrite
 COPY configFiles/000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY configFiles/apache2.conf /etc/apache2/apache2.conf
 COPY configFiles/php.ini /usr/local/etc/php/php.ini
 ENV PHP_INI_FILE php.ini
 # Install composer
