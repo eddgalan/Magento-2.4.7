@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="AlphaTeam_CashbackWallet::cashbackwallet_management"
+             title="Cashback Wallet"
+             module="AlphaTeam_CashbackWallet"
+             sortOrder="100"
+             parent="Magento_Customer::customer"
+             resource="AlphaTeam_CashbackWallet::cashbackwallet_management"/>
+        <add id="AlphaTeam_CashbackWallet::index"
+             title="Wallets"
+             module="AlphaTeam_CashbackWallet"
+             sortOrder="100"
+             action="cashbackwallet_management/cashbackwallet/index"
+             parent="AlphaTeam_CashbackWallet::cashbackwallet_management"
+             resource="AlphaTeam_CashbackWallet::manage_cashbackwallet"/>
+    </menu>
+</config>
