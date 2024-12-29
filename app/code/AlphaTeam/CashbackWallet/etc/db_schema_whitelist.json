@@ -1,0 +1,21 @@
+{
+    "alphateam_cashbackwallet_balance": {
+        "column": {
+            "entity_id": true,
+            "customer_id": true,
+            "balance": true,
+            "total_earned": true,
+            "total_used": true,
+            "status": true,
+            "last_updated": true,
+            "created_at": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "ALPHATEAM_CASHBACKWALLET_BALANCE_CSTR_ID_CSTR_ENTT_ENTT_ID": true
+        },
+        "index": {
+            "ALPHATEAM_CASHBACKWALLET_BALANCE_CUSTOMER_ID": true
+        }
+    }
+}
