@@ -1,0 +1,9 @@
+version: '3'
+services:
+  magento-web:
+    build: .
+    container_name: magento-2.4.7
+    ports:
+      - "8084:80"
+    volumes:
+      - ./:/var/www/html
