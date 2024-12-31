@@ -85,14 +85,14 @@
                 <label translate="true">Status</label>
             </settings>
         </column>
-        <column name="last_updated">
+        <column name="last_updated" class="Magento\Ui\Component\Listing\Columns\Date">
             <settings>
                 <filter>dateRange</filter>
                 <label translate="true">Last Updated</label>
                 <sorting>asc</sorting>
             </settings>
         </column>
-        <column name="created_at">
+        <column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date">
             <settings>
                 <filter>dateRange</filter>
                 <label translate="true">Created At</label>
