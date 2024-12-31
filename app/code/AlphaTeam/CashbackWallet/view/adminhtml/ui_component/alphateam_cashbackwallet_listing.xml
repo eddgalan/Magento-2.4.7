@@ -79,7 +79,7 @@
                 <sorting>asc</sorting>
             </settings>
         </column>
-        <column name="status">
+        <column name="status" class="AlphaTeam\CashbackWallet\Ui\Component\Listing\Columns\Status">
             <settings>
                 <filter>text</filter>
                 <label translate="true">Status</label>
