@@ -17,7 +17,7 @@ class Index extends Action implements HttpGetActionInterface
     /**
      * Authorization level of a basic admin session.
      */
-    public const ADMIN_RESOURCE = 'AlphaTeam_CashbackWallet::cashbackwallet_management';
+    public const ADMIN_RESOURCE = 'AlphaTeam_CashbackWallet::manage_cashbackwallet';
 
     /**
      * Admin menu item

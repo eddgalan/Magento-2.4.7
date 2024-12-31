@@ -3,4 +3,19 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="AlphaTeam\CashbackWallet\Api\Data\CashbackWalletInterface" type="AlphaTeam\CashbackWallet\Model\CashbackWallet"/>
     <preference for="AlphaTeam\CashbackWallet\Api\CashbackWalletRepositoryInterface" type="AlphaTeam\CashbackWallet\Model\CashbackWalletRepository"/>
+    <virtualType name="AlphaTeam\CashbackWallet\Model\ResourceModel\CashbackWallet\Grid\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">alphateam_cashbackwallet_balance</argument>
+            <argument name="resourceModel" xsi:type="string">AlphaTeam\CashbackWallet\Model\ResourceModel\CashbackWallet</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item xsi:type="string" name="alphateam_cashbackwallet_listing_data_source">
+                    AlphaTeam\CashbackWallet\Model\ResourceModel\CashbackWallet\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

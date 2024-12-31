@@ -8,7 +8,7 @@
              sortOrder="100"
              parent="Magento_Customer::customer"
              resource="AlphaTeam_CashbackWallet::cashbackwallet_management"/>
-        <add id="AlphaTeam_CashbackWallet::index"
+        <add id="AlphaTeam_CashbackWallet::manage_cashbackwallet"
              title="Wallets"
              module="AlphaTeam_CashbackWallet"
              sortOrder="100"
