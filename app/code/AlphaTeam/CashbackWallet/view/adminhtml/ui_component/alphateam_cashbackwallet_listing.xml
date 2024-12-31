@@ -81,7 +81,9 @@
         </column>
         <column name="status" class="AlphaTeam\CashbackWallet\Ui\Component\Listing\Columns\Status">
             <settings>
-                <filter>text</filter>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <options class="AlphaTeam\CashbackWallet\Model\CashbackWallet\Source\Status"/>
                 <label translate="true">Status</label>
             </settings>
         </column>
