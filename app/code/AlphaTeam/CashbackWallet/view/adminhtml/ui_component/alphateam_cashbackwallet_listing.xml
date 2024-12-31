@@ -58,21 +58,21 @@
                 <sorting>asc</sorting>
             </settings>
         </column>
-        <column name="balance">
+        <column name="balance" class="AlphaTeam\CashbackWallet\Ui\Component\Listing\Columns\WalletCoinFormat">
             <settings>
                 <filter>textRange</filter>
                 <label translate="true">Balance</label>
                 <sorting>asc</sorting>
             </settings>
         </column>
-        <column name="total_earned">
+        <column name="total_earned" class="AlphaTeam\CashbackWallet\Ui\Component\Listing\Columns\WalletCoinFormat">
             <settings>
                 <filter>textRange</filter>
                 <label translate="true">Total Earned</label>
                 <sorting>asc</sorting>
             </settings>
         </column>
-        <column name="total_used">
+        <column name="total_used" class="AlphaTeam\CashbackWallet\Ui\Component\Listing\Columns\WalletCoinFormat">
             <settings>
                 <filter>textRange</filter>
                 <label translate="true">Total Used</label>
