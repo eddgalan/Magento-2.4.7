@@ -17,5 +17,24 @@
         "index": {
             "ALPHATEAM_CASHBACKWALLET_BALANCE_CUSTOMER_ID": true
         }
+    },
+    "alphateam_cashbackwallet_transaction": {
+        "column": {
+            "transaction_id": true,
+            "wallet_id": true,
+            "transaction_type": true,
+            "amount": true,
+            "order_id": true,
+            "note": true,
+            "created_at": true
+        },
+        "index": {
+            "ALPHATEAM_CASHBACKWALLET_TRANSACTION_WALLET_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_F77B3131255BCDC6A8BA06EC961ED174": true,
+            "FK_7DD921FC938EF1C64EA396C6E2701148": true
+        }
     }
 }
