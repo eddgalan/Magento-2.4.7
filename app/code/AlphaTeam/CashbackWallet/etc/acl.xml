@@ -7,7 +7,10 @@
                 <resource id="AlphaTeam_CashbackWallet::cashbackwallet_management"
                           title="AlphaTeam Cashback Wallet Management"
                           sortOrder="10">
-                    <resource id="AlphaTeam_CashbackWallet::manage_cashbackwallet" title="Cashback Wallet" sortOrder="10"/>
+                    <resource id="AlphaTeam_CashbackWallet::manage_cashbackwallet"
+                              title="Grid" sortOrder="10"/>
+                    <resource id="AlphaTeam_CashbackWallet::manage_cashbackwallet_transactions"
+                              title="Transactions" sortOrder="20"/>
                 </resource>
             </resource>
         </resources>
