@@ -21,5 +21,6 @@
             </argument>
         </arguments>
     </type>
-
+    <preference for="AlphaTeam\CashbackWallet\Api\Data\CashbackWalletTransactionInterface"
+                type="AlphaTeam\CashbackWallet\Model\CashbackWalletTransaction"/>
 </config>
