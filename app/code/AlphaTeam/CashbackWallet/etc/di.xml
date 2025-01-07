@@ -23,4 +23,6 @@
     </type>
     <preference for="AlphaTeam\CashbackWallet\Api\Data\CashbackWalletTransactionInterface"
                 type="AlphaTeam\CashbackWallet\Model\CashbackWalletTransaction"/>
+    <preference for="AlphaTeam\CashbackWallet\Api\CashbackWalletTransactionRepositoryInterface"
+                type="AlphaTeam\CashbackWallet\Model\CashbackWalletTransactionRepository" />
 </config>
