@@ -11,6 +11,7 @@ use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Api\SearchResultsInterface;
 use Magento\Framework\Api\SearchCriteria\CollectionProcessor;
 use Magento\Framework\Api\Search\SearchResultInterfaceFactory;
+use Magento\Framework\DataObject;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\CouldNotDeleteException;
@@ -143,5 +144,26 @@ class CashbackWalletRepository implements CashbackWalletRepositoryInterface
     {
         $cashbackWallet = $this->getById($id);
         return $this->delete($cashbackWallet);
+    }
+
+    /**
+     * Get CashbackWallet by CustomerId
+     *
+     * @param int $customerId
+     * @return CashbackWalletInterface|DataObject
+     * @throws NoSuchEntityException
+     */
+    public function getByCustomerId(int $customerId): CashbackWalletInterface|DataObject
+    {
+        $collection = $this->collectionFactory->create();
+        $collection->addFieldToFilter('customer_id', $customerId);
+
+        $cashbackWallet = $collection->getFirstItem();
+
+        if (!$cashbackWallet->getId()) {
+            throw new NoSuchEntityException(__('No Cashback Wallet found for customer ID %1', $customerId));
+        }
+
+        return $cashbackWallet;
     }
 }

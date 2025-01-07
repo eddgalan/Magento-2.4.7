@@ -1,0 +1,10 @@
+type Customer {
+    cashbackWallet: CashbackWallet @resolver(class: "AlphaTeam\\CashbackWallet\\Model\\Resolver\\Customer\\CashbackWalletResolver")
+}
+
+type CashbackWallet {
+    balance: Float
+    totalEarned: Float
+    totalUsed: Float
+    status: String
+}

@@ -5,6 +5,7 @@ namespace AlphaTeam\CashbackWallet\Api;
 use Magento\Framework\Api\SearchCriteriaInterface;
 use AlphaTeam\CashbackWallet\Api\Data\CashbackWalletInterface;
 use Magento\Framework\Api\SearchResultsInterface;
+use Magento\Framework\DataObject;
 
 interface CashbackWalletRepositoryInterface
 {
@@ -47,4 +48,12 @@ interface CashbackWalletRepositoryInterface
      * @return bool
      */
     public function deleteById(int $id): bool;
+
+    /**
+     * Get CashbackWallet by CustomerId
+     *
+     * @param int $customerId
+     * @return CashbackWalletInterface|DataObject
+     */
+    public function getByCustomerId(int $customerId): CashbackWalletInterface|DataObject;
 }
