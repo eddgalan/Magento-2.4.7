@@ -4,18 +4,17 @@ namespace AlphaTeam\CashbackWallet\Api\Data;
 
 /**
  * Interface CashbackWalletInterface
- * @package AlphaTeam\CashbackWallet\Api\Data
  */
 interface CashbackWalletInterface
 {
-    const ENTITY_ID = 'entity_id';
-    const CUSTOMER_ID = 'customer_id';
-    const BALANCE = 'balance';
-    const TOTAL_EARNED = 'total_earned';
-    const TOTAL_USED = 'total_used';
-    const STATUS = 'status';
-    const LAST_UPDATED = 'last_updated';
-    const CREATED_AT = 'created_at';
+    public const ENTITY_ID = 'entity_id';
+    public const CUSTOMER_ID = 'customer_id';
+    public const BALANCE = 'balance';
+    public const TOTAL_EARNED = 'total_earned';
+    public const TOTAL_USED = 'total_used';
+    public const STATUS = 'status';
+    public const LAST_UPDATED = 'last_updated';
+    public const CREATED_AT = 'created_at';
 
     /**
      * Get Wallet ID
