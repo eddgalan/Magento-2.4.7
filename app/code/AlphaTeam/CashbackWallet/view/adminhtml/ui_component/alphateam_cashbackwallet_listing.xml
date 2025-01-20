@@ -64,6 +64,12 @@
                 <label translate="true">Customer Name</label>
             </settings>
         </column>
+        <column name="customer_lastname">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Customer Lastname</label>
+            </settings>
+        </column>
         <column name="balance" class="AlphaTeam\CashbackWallet\Ui\Component\Listing\Columns\WalletCoinFormat">
             <settings>
                 <filter>textRange</filter>

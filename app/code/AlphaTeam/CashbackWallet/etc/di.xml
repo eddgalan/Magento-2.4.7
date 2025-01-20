@@ -5,13 +5,13 @@
                 type="AlphaTeam\CashbackWallet\Model\CashbackWallet"/>
     <preference for="AlphaTeam\CashbackWallet\Api\CashbackWalletRepositoryInterface"
                 type="AlphaTeam\CashbackWallet\Model\CashbackWalletRepository"/>
-    <virtualType name="AlphaTeam\CashbackWallet\Model\ResourceModel\CashbackWallet\Grid\Collection"
+    <type name="AlphaTeam\CashbackWallet\Model\ResourceModel\CashbackWallet\Grid\Collection"
                  type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
             <argument name="mainTable" xsi:type="string">alphateam_cashbackwallet_balance</argument>
             <argument name="resourceModel" xsi:type="string">AlphaTeam\CashbackWallet\Model\ResourceModel\CashbackWallet\Collection</argument>
         </arguments>
-    </virtualType>
+    </type>
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">

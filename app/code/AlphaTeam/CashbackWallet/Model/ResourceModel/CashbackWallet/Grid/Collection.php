@@ -16,8 +16,11 @@ class Collection extends SearchResult
             ['ce' => $this->getTable('customer_entity')],
             'main_table.customer_id = ce.entity_id',
             [
-                'customer_name' => new \Zend_Db_Expr("CONCAT(ce.firstname, ' ', ce.lastname)")
+                'customer_name' => 'ce.firstname',
+                'customer_lastname' => 'ce.lastname',
             ]
         );
+        $this->addFilterToMap('customer_name', 'ce.firstname');
+        $this->addFilterToMap('customer_last', 'ce.lastname');
     }
 }
