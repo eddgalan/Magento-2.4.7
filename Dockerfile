@@ -33,7 +33,7 @@ RUN a2enmod rewrite
 COPY configFiles/000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY configFiles/apache2.conf /etc/apache2/apache2.conf
 COPY configFiles/php.ini /usr/local/etc/php/php.ini
-COPY configFiles/docker-php-ext-xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+#COPY configFiles/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 ENV PHP_INI_FILE php.ini
 # Install composer
 RUN apt-get update -y && curl -sS https://getcomposer.org/installer | php -- --version=2.7.5 && mv composer.phar /usr/local/bin/composer
