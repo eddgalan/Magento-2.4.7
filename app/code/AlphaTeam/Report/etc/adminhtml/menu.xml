@@ -21,7 +21,7 @@
             sortOrder="10"
             parent="AlphaTeam_Report::CustomReports"
             resource="AlphaTeam_Report::SalesOrderDetails"
-            action="frontName/ControllerFolder/FileName"
+            action="alphateam_reports/salesorderdetails/index"
         />
     </menu>
 </config>
