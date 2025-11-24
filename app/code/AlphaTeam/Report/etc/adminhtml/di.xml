@@ -16,4 +16,14 @@
             </argument>
         </arguments>
     </type>
+    <type name="Magento\Ui\Model\Export\MetadataProvider">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="alphateam_sales_order_details_listing" xsi:type="array">
+                    <item name="created_at" xsi:type="string">created_at</item>
+                    <item name="updated_at" xsi:type="string">updated_at</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
 </config>
