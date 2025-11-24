@@ -23,7 +23,7 @@
         <!--
         <aclResource>AlphaTeam_Report::manage_report</aclResource>
         -->
-        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider"
+        <dataProvider class="AlphaTeam\Report\Ui\DataProvider\SalesOrderDetailsDataProvider"
                       name="alphateam_report_listing_data_source">
             <settings>
                 <requestFieldName>entity_id</requestFieldName>
