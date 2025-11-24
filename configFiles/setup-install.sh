@@ -1,6 +1,6 @@
 bin/magento setup:install \
---base-url=http://localhost:8080 \
---db-host=mage_mysql \
+--base-url=http://localhost:8081 \
+--db-host=mysql \
 --db-name=magento \
 --db-user=root \
 --db-password=12345678a \
@@ -14,7 +14,7 @@ bin/magento setup:install \
 --timezone=America/Chicago \
 --use-rewrites=1 \
 --search-engine=elasticsearch7 \
---elasticsearch-host=mage_elasticsearch7 \
+--elasticsearch-host=elasticsearch7 \
 --elasticsearch-port=9200 \
 --elasticsearch-index-prefix=magento2 \
 --elasticsearch-timeout=15
