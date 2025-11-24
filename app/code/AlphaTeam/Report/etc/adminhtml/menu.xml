@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="AlphaTeam_Report::CustomReports"
+            title="Sales Reports (Grid)"
+            module="AlphaTeam_Report"
+            sortOrder="100"
+            parent="Magento_Sales::sales"
+            resource="AlphaTeam_Report::CustomReports"/>
+        <add
+            id="AlphaTeam_Report::SalesOrderDetails"
+            title="Sales Order Details"
+            module="AlphaTeam_Report"
+            sortOrder="10"
+            parent="AlphaTeam_Report::CustomReports"
+            resource="AlphaTeam_Report::SalesOrderDetails"
+            action="frontName/ControllerFolder/FileName"
+        />
+    </menu>
+</config>
