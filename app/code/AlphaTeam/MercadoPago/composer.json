@@ -1,0 +1,21 @@
+{
+  "name": "alpha-team/module-mercado-pago",
+  "version": "1.0.0",
+  "description": "N/A",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "*",
+      "magento/module-sales": "*",
+      "magento/module-quote": "*",
+      "magento/module-payment": "*",
+      "magento/module-checkout": "*"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "AlphaTeam\\MercadoPago\\": ""
+    }
+  }
+}
