@@ -21,9 +21,7 @@
             </storageConfig>
             <updateUrl path="mui/index/render"/>
         </settings>
-        <!--
-        <aclResource>AlphaTeam_Report::manage_report</aclResource>
-        -->
+        <aclResource>AlphaTeam_Report::SalesOrderDetails</aclResource>
         <dataProvider class="AlphaTeam\Report\Ui\DataProvider\SalesOrderDetailsDataProvider"
                       name="alphateam_report_listing_data_source">
             <settings>
