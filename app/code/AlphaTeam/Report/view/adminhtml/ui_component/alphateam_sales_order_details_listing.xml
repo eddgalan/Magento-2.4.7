@@ -45,154 +45,147 @@
                 </item>
             </argument>
         </selectionsColumn>
-        <column name="entity_id">
+        <column name="entity_id" sortOrder="10">
             <settings>
                 <label translate="true">Order ID</label>
                 <sorting>asc</sorting>
             </settings>
         </column>
 
-        <column name="increment_id">
+        <column name="increment_id" sortOrder="20">
             <settings>
                 <label translate="true">Order #</label>
             </settings>
         </column>
 
-        <column name="state">
+        <column name="state" sortOrder="30">
             <settings>
                 <label translate="true">State</label>
             </settings>
         </column>
 
-        <column name="status">
+        <column name="status" sortOrder="40">
             <settings>
                 <label translate="true">Status</label>
             </settings>
         </column>
 
-        <column name="customer_email">
+        <column name="customer_email" sortOrder="50">
             <settings>
                 <label translate="true">Customer Email</label>
             </settings>
         </column>
 
-        <column name="subtotal">
+        <column name="subtotal" sortOrder="60">
             <settings>
                 <label translate="true">Subtotal</label>
                 <filter>textRange</filter>
             </settings>
         </column>
 
-        <column name="discount_amount">
+        <column name="discount_amount" sortOrder="70">
             <settings>
                 <label translate="true">Order Discount</label>
                 <filter>textRange</filter>
             </settings>
         </column>
 
-        <column name="coupon_code">
+        <column name="coupon_code" sortOrder="80">
             <settings>
                 <label translate="true">Coupon Code</label>
             </settings>
         </column>
 
-        <column name="shipping_amount">
+        <column name="shipping_amount" sortOrder="90">
             <settings>
                 <label translate="true">Shipping</label>
                 <filter>textRange</filter>
             </settings>
         </column>
 
-        <column name="tax_amount">
+        <column name="tax_amount" sortOrder="100">
             <settings>
                 <label translate="true">Tax</label>
                 <filter>textRange</filter>
             </settings>
         </column>
 
-        <column name="grand_total">
+        <column name="grand_total" sortOrder="110">
             <settings>
                 <label translate="true">Grand Total</label>
                 <filter>textRange</filter>
             </settings>
         </column>
 
-        <column name="total_paid">
+        <column name="total_paid" sortOrder="120">
             <settings>
                 <label translate="true">Total Paid</label>
                 <filter>textRange</filter>
             </settings>
         </column>
 
-        <column name="total_refunded">
+        <column name="total_refunded" sortOrder="130">
             <settings>
                 <label translate="true">Total Refunded</label>
                 <filter>textRange</filter>
             </settings>
         </column>
 
-        <column name="created_at">
-            <settings>
-                <label translate="true">Created At</label>
-                <filter>dateRange</filter>
-            </settings>
-        </column>
-
         <!-- Campos de item -->
-        <column name="sku">
+        <column name="sku" sortOrder="140">
             <settings>
                 <label translate="true">SKU</label>
             </settings>
         </column>
 
-        <column name="name">
+        <column name="name" sortOrder="150">
             <settings>
                 <label translate="true">Product Name</label>
             </settings>
         </column>
 
-        <column name="product_type">
+        <column name="product_type" sortOrder="160">
             <settings>
                 <label translate="true">Product Type</label>
             </settings>
         </column>
 
-        <column name="base_price">
+        <column name="base_price" sortOrder="170">
             <settings>
                 <label translate="true">Base Price</label>
                 <filter>textRange</filter>
             </settings>
         </column>
 
-        <column name="item_discount_amount">
+        <column name="item_discount_amount" sortOrder="180">
             <settings>
                 <label translate="true">Item Discount</label>
                 <filter>textRange</filter>
             </settings>
         </column>
 
-        <column name="qty_ordered">
+        <column name="qty_ordered" sortOrder="190">
             <settings>
                 <label translate="true">Qty Ordered</label>
                 <filter>textRange</filter>
             </settings>
         </column>
 
-        <column name="qty_invoiced">
+        <column name="qty_invoiced" sortOrder="200">
             <settings>
                 <label translate="true">Qty Invoiced</label>
                 <filter>textRange</filter>
             </settings>
         </column>
 
-        <column name="qty_shipped">
+        <column name="qty_shipped" sortOrder="210">
             <settings>
                 <label translate="true">Qty Shipped</label>
                 <filter>textRange</filter>
             </settings>
         </column>
 
-        <column name="qty_refunded">
+        <column name="qty_refunded" sortOrder="220">
             <settings>
                 <label translate="true">Qty Refunded</label>
                 <filter>textRange</filter>
@@ -200,9 +193,16 @@
         </column>
 
         <!-- Pago -->
-        <column name="payment_method">
+        <column name="payment_method" sortOrder="230">
             <settings>
                 <label translate="true">Payment Method</label>
+            </settings>
+        </column>
+
+        <column name="created_at" sortOrder="240" class="Magento\Ui\Component\Listing\Columns\Date" component="Magento_Ui/js/grid/columns/date">
+            <settings>
+                <label translate="true">Created At</label>
+                <filter>dateRange</filter>
             </settings>
         </column>
     </columns>

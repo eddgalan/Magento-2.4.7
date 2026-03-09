@@ -61,7 +61,6 @@ class SalesOrderDetailsDataProvider extends DataProvider
      * Retrieves and processes data
      *
      * @return array Processed data with local time adjustments for timestamps where applicable.
-     * @throws \DateMalformedStringException
      */
     public function getData(): array
     {
@@ -69,16 +68,6 @@ class SalesOrderDetailsDataProvider extends DataProvider
 
         if (!isset($data['items']) || !is_array($data['items'])) {
             return $data;
-        }
-
-        foreach ($data['items'] as &$item) {
-            if (!empty($item['created_at'])) {
-                $item['created_at'] = $this->convertToLocalTime($item['created_at']);
-            }
-
-            if (!empty($item['updated_at'])) {
-                $item['updated_at'] = $this->convertToLocalTime($item['updated_at']);
-            }
         }
 
         return $data;
