@@ -10,4 +10,31 @@
             </argument>
         </arguments>
     </type>
+    <type name="AlphaTeam\Report\Model\ReportGeneratorPool">
+        <arguments>
+            <argument name="generators" xsi:type="array">
+                <item name="price_report" xsi:type="object">
+                    AlphaTeam\Report\Model\ReportGeneratorPool\PriceReport
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- Price Report -->
+    <virtualType name="AlphaTeam\Report\Model\ResourceModel\PriceAttribute"
+                 type="AlphaTeam\Report\Model\ResourceModel\AttributeReport">
+        <arguments>
+            <argument name="attributeCode" xsi:type="string">price</argument>
+            <argument name="productType" xsi:type="string">simple</argument>
+        </arguments>
+    </virtualType>
+    <type name="AlphaTeam\Report\Model\DataProvider\PriceDataProvider">
+        <arguments>
+            <argument name="resource" xsi:type="object">AlphaTeam\Report\Model\ResourceModel\PriceAttribute</argument>
+        </arguments>
+    </type>
+    <type name="AlphaTeam\Report\Model\ReportGeneratorPool\PriceReport">
+        <arguments>
+            <argument name="dataProvider" xsi:type="object">AlphaTeam\Report\Model\DataProvider\PriceDataProvider</argument>
+        </arguments>
+    </type>
 </config>
