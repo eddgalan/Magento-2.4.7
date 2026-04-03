@@ -10,6 +10,7 @@
         <add
             id="AlphaTeam_Report::CustomReports"
             title="Sales Reports (Grid)"
+            translate="title"
             module="AlphaTeam_Report"
             sortOrder="100"
             parent="Magento_Sales::sales"
@@ -17,11 +18,28 @@
         <add
             id="AlphaTeam_Report::SalesOrderDetails"
             title="Sales Order Details"
+            translate="title"
             module="AlphaTeam_Report"
             sortOrder="10"
             parent="AlphaTeam_Report::CustomReports"
             resource="AlphaTeam_Report::SalesOrderDetails"
-            action="alphateam_reports/salesorderdetails/index"
-        />
+            action="alphateam_reports/salesorderdetails/index"/>
+        <add
+            id="AlphaTeam_Report::ReportsCustomReports"
+            title="Alpha Team Custom Reports"
+            translate="title"
+            module="AlphaTeam_Report"
+            sortOrder="10"
+            parent="Magento_Reports::report"
+            resource="AlphaTeam_Report::ReportsCustomReport"/>
+        <add
+            id="AlphaTeam_Report::CustomReportsForm"
+            title="Custom Report Generator"
+            translate="title"
+            module="AlphaTeam_Report"
+            sortOrder="10"
+            parent="AlphaTeam_Report::ReportsCustomReports"
+            resource="AlphaTeam_Report::CustomReportsForm"
+            action="alphateam_reports/customreport/index"/>
     </menu>
 </config>

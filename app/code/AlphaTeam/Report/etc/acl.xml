@@ -9,6 +9,11 @@
                         <resource id="AlphaTeam_Report::SalesOrderDetails" title="Sales Order Details (Grid)" translate="title" sortOrder="10"/>
                     </resource>
                 </resource>
+                <resource id="Magento_Reports::report">
+                    <resource id="AlphaTeam_Report::ReportsCustomReport" title="Alpha Team | Custom Reports" translate="title" sortOrder="100">
+                        <resource id="AlphaTeam_Report::CustomReportsForm" title="Form" translate="title" sortOrder="10"/>
+                    </resource>
+                </resource>
             </resource>
         </resources>
     </acl>
