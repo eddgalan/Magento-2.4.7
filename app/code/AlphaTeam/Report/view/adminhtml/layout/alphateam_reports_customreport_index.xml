@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="AlphaTeam\Report\Block\Adminhtml\CustomReport\Index"
+                   name="alphateam_reports_customreport_index"
+                   template="AlphaTeam_Report::report/index.phtml"/>
+        </referenceContainer>
+    </body>
+</page>
