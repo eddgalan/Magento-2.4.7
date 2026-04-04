@@ -23,36 +23,12 @@
         </arguments>
     </type>
     <!-- Price Report -->
-    <virtualType name="AlphaTeam\Report\Model\ResourceModel\PriceAttribute"
-                 type="AlphaTeam\Report\Model\ResourceModel\AttributeReport">
-        <arguments>
-            <argument name="attributeCode" xsi:type="string">price</argument>
-            <argument name="productType" xsi:type="string">simple</argument>
-        </arguments>
-    </virtualType>
-    <type name="AlphaTeam\Report\Model\DataProvider\PriceDataProvider">
-        <arguments>
-            <argument name="resource" xsi:type="object">AlphaTeam\Report\Model\ResourceModel\PriceAttribute</argument>
-        </arguments>
-    </type>
     <type name="AlphaTeam\Report\Model\ReportGeneratorPool\PriceReport">
         <arguments>
             <argument name="dataProvider" xsi:type="object">AlphaTeam\Report\Model\DataProvider\PriceDataProvider</argument>
         </arguments>
     </type>
     <!-- Activity Report -->
-    <virtualType name="AlphaTeam\Report\Model\ResourceModel\ActivityAttribute"
-                 type="AlphaTeam\Report\Model\ResourceModel\AttributeReport">
-        <arguments>
-            <argument name="attributeCode" xsi:type="string">activity</argument>
-            <argument name="productType" xsi:type="string">simple</argument>
-        </arguments>
-    </virtualType>
-    <type name="AlphaTeam\Report\Model\DataProvider\ActivityDataProvider">
-        <arguments>
-            <argument name="resource" xsi:type="object">AlphaTeam\Report\Model\ResourceModel\ActivityAttribute</argument>
-        </arguments>
-    </type>
     <type name="AlphaTeam\Report\Model\ReportGeneratorPool\ActivityReport">
         <arguments>
             <argument name="dataProvider" xsi:type="object">AlphaTeam\Report\Model\DataProvider\ActivityDataProvider</argument>

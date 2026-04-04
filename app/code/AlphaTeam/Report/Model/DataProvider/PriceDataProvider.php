@@ -8,6 +8,9 @@ use AlphaTeam\Report\Model\ResourceModel\AttributeReport;
 
 class PriceDataProvider implements DataProviderInterface
 {
+    public const ATTRIBUTE_CODE = 'price';
+    public const PRODUCT_TYPE = 'simple';
+
     /**
      * @var AttributeReport $attributeResource
      */
@@ -29,6 +32,6 @@ class PriceDataProvider implements DataProviderInterface
      */
     public function collectData(): array
     {
-        return $this->attributeResource->getReportData();
+        return $this->attributeResource->getReportData(self::ATTRIBUTE_CODE, self::PRODUCT_TYPE);
     }
 }

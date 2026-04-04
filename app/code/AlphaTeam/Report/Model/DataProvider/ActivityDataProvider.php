@@ -11,6 +11,7 @@ use Magento\Framework\Exception\LocalizedException;
 class ActivityDataProvider implements DataProviderInterface
 {
     public const ATTRIBUTE_CODE = 'activity';
+    public const PRODUCT_TYPE = 'simple';
 
     /**
      * @var AttributeReport $attributeResource
@@ -42,7 +43,7 @@ class ActivityDataProvider implements DataProviderInterface
      */
     public function collectData(): array
     {
-        $data = $this->attributeResource->getReportData();
+        $data = $this->attributeResource->getReportData(self::ATTRIBUTE_CODE, self::PRODUCT_TYPE);
 
         foreach ($data as &$row) {
             if (!isset($row['value'])) {

@@ -4,37 +4,9 @@ declare(strict_types=1);
 namespace AlphaTeam\Report\Model\ResourceModel;
 
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
-use Magento\Framework\Model\ResourceModel\Db\Context;
 
 class AttributeReport extends AbstractDb
 {
-    /**
-     * @var string $attributeCode
-     */
-    private string $attributeCode;
-
-    /**
-     * @var string $productType
-     */
-    private string $productType;
-
-    /**
-     * @param Context $context
-     * @param string $attributeCode
-     * @param string $productType
-     * @param null $connectionName
-     */
-    public function __construct(
-        Context $context,
-        string $attributeCode = '',
-        string $productType = '',
-                $connectionName = null
-    ) {
-        $this->attributeCode = $attributeCode;
-        $this->productType = $productType;
-        parent::__construct($context, $connectionName);
-    }
-
     /**
      * Initialize the model with the main table and primary key field.
      *
@@ -46,16 +18,13 @@ class AttributeReport extends AbstractDb
     }
 
     /**
-     * Retrieves report data based on the provided attribute code.
+     * Retrieves report data for a specific attribute and product type.
      *
-     * This method fetches data from the database for a specific attribute associated
-     * with configurable products. The data will include product identifiers (SKU)
-     * and their corresponding attribute values, determined by whether the attribute
-     * is of a static type or a dynamic type (with backend storage).
-     *
+     * @param string $attributeCode
+     * @param string $productType
      * @return array
      */
-    public function getReportData(): array
+    public function getReportData(string $attributeCode, string $productType): array
     {
         $connection = $this->getConnection();
 
@@ -65,7 +34,7 @@ class AttributeReport extends AbstractDb
                     ['ea' => $this->getTable('eav_attribute')],
                     ['attribute_id', 'backend_type', 'attribute_code']
                 )
-                ->where('ea.attribute_code = ?', $this->attributeCode)
+                ->where('ea.attribute_code = ?', $attributeCode)
         );
 
         if (!$attribute) {
@@ -79,9 +48,9 @@ class AttributeReport extends AbstractDb
             $select = $connection->select()
                 ->from(
                     ['cpe' => $this->getTable('catalog_product_entity')],
-                    ['sku', 'value' => $this->attributeCode]
+                    ['sku', 'value' => $attributeCode]
                 )
-                ->where('cpe.type_id = ?', 'configurable')
+                ->where('cpe.type_id = ?', $productType)
                 ->order('cpe.sku ASC');
 
             return $connection->fetchAll($select);
@@ -102,7 +71,7 @@ class AttributeReport extends AbstractDb
                 ),
                 ['value']
             )
-            ->where('cpe.type_id = ?', $this->productType)
+            ->where('cpe.type_id = ?', $productType)
             ->order('cpe.sku ASC');
 
         return $connection->fetchAll($select);
