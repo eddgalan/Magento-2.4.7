@@ -10,6 +10,7 @@
 /var/view_preprocessed/*
 /var/log/*
 /var/report/*
+/var/export
 /var/tmp/*
 /var/session/*
 

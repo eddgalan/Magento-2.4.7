@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace AlphaTeam\Report\Model\Config\Source;
 
+use AlphaTeam\Report\Model\ReportGeneratorPool\ActivityReport;
 use AlphaTeam\Report\Model\ReportGeneratorPool\PriceReport;
 
 class ReportsList implements \Magento\Framework\Data\OptionSourceInterface
@@ -18,6 +19,10 @@ class ReportsList implements \Magento\Framework\Data\OptionSourceInterface
             [
                 'value' => PriceReport::REPORT_TYPE,
                 'label' => PriceReport::REPORT_TYPE_LABEL
+            ],
+            [
+                'value' => ActivityReport::REPORT_TYPE,
+                'label' => ActivityReport::REPORT_TYPE_LABEL
             ]
         ];
     }
