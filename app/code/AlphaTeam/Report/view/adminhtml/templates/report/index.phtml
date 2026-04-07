@@ -4,47 +4,18 @@
 use AlphaTeam\Report\Block\Adminhtml\CustomReport\Index;
 
 $actionUrl = $block->getRunUrl();
-$options   = $block->getReportTypeOptions();
-
-/**
- * ToDo: Follow best practices and separate styles, HTML, and scripts
- */
+$options = $block->getReportTypeOptions();
 
 ?>
 
-<style>
-    .alphateam-report-loader {
-        display: none;
-        position: absolute;
-        inset: 0;
-        background: rgba(255,255,255,.7);
-        justify-content: center;
-        align-items: center;
-        z-index: 100;
-    }
-    .alphateam-report-loader._active {
-        display: flex;
-    }
-    .alphateam-spinner {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border: 4px solid #ccc;
-        border-top-color: #333;
-        animation: alphateam-spin 1s linear infinite;
-    }
-    @keyframes alphateam-spin {
-        to { transform: rotate(360deg); }
-    }
-</style>
-
 <div class="alphateam-custom-reports-wrapper">
     <div class="alphateam-custom-reports">
-        <form action="<?= $block->escapeUrl($actionUrl) ?>" method="post" class="alphateam-customreport-form">
+        <form method="post" action="<?= $block->escapeUrl($actionUrl) ?>" class="alphateam-customreport-form"
+              data-mage-init='{"AlphaTeam_Report/js/report": {}}'>
             <?= $block->getBlockHtml('formkey'); ?>
 
-            <div class="admin__field alphateam-report-row" style="display:flex;align-items:center;gap:20px;">
-                <label class="admin__field-label" for="report_type" style="margin-bottom:0;">
+            <div class="admin__field alphateam-report-row">
+                <label class="admin__field-label" for="report_type">
                     <span><?= $block->escapeHtml(__('Select report')) ?></span>
                 </label>
 
@@ -58,7 +29,7 @@ $options   = $block->getReportTypeOptions();
                     </select>
                 </div>
 
-                <div class="admin__field-control" style="margin-bottom:0;margin-top:0;">
+                <div class="admin__field-control mt-0">
                     <button type="submit" class="action-default scalable">
                         <span><?= $block->escapeHtml(__('Generate Report')) ?></span>
                     </button>
@@ -66,24 +37,4 @@ $options   = $block->getReportTypeOptions();
             </div>
         </form>
     </div>
-
-    <div class="alphateam-report-loader">
-        <div class="alphateam-spinner"></div>
-    </div>
 </div>
-<script>
-    require([
-        'jquery'
-    ], function ($) {
-        'use strict';
-
-        $(function () {
-            const $form = $('.alphateam-customreport-form');
-            const submitButton = $form.find('button[type="submit"]');
-
-            $form.on('submit', function () {
-                submitButton.attr('disabled', true);
-            });
-        });
-    });
-</script>

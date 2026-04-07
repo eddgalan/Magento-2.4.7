@@ -1,0 +1,14 @@
+.alphateam-report-row {
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+label.admin__field-label {
+    margin-bottom:0;
+}
+div.admin__field-control {
+    margin-bottom:0;
+}
+.mt-0 {
+    margin-top:0 !important;
+}
