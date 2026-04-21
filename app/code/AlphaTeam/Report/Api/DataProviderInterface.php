@@ -5,10 +5,11 @@ namespace AlphaTeam\Report\Api;
 
 interface DataProviderInterface
 {
+
     /**
-     * Collects and returns a set of data as an array.
+     * Gathers and returns a collection of data.
      *
-     * @return array Returns an array containing the collected data.
+     * @return iterable Returns an iterable collection of data.
      */
-    public function collectData(): array;
+    public function collectData(): iterable;
 }

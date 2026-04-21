@@ -5,7 +5,6 @@ namespace AlphaTeam\Report\Model\ReportGeneratorPool;
 
 use Magento\Framework\App\Filesystem\DirectoryList;
 use Magento\Framework\Exception\FileSystemException;
-use Magento\Framework\File\Csv as CsvProcessor;
 use Magento\Framework\Filesystem\Driver\File as FileDriver;
 use AlphaTeam\Report\Api\ReportGeneratorInterface;
 use AlphaTeam\Report\Api\DataProviderInterface;
@@ -24,11 +23,6 @@ abstract class ReportGeneratorAbstract implements ReportGeneratorInterface
     private DirectoryList $directoryList;
 
     /**
-     * @var CsvProcessor
-     */
-    private CsvProcessor $csvProcessor;
-
-    /**
      * @var FileDriver
      */
     private FileDriver $fileDriver;
@@ -40,18 +34,15 @@ abstract class ReportGeneratorAbstract implements ReportGeneratorInterface
 
     /**
      * @param DirectoryList $directoryList
-     * @param CsvProcessor $csvProcessor
      * @param FileDriver $fileDriver
      * @param DataProviderInterface $dataProvider
      */
     public function __construct(
         DirectoryList         $directoryList,
-        CsvProcessor          $csvProcessor,
         FileDriver            $fileDriver,
         DataProviderInterface $dataProvider,
     ) {
         $this->directoryList = $directoryList;
-        $this->csvProcessor = $csvProcessor;
         $this->fileDriver = $fileDriver;
         $this->dataProvider = $dataProvider;
     }
@@ -80,29 +71,14 @@ abstract class ReportGeneratorAbstract implements ReportGeneratorInterface
     }
 
     /**
-     * Writes the provided data array into a CSV file and saves it in the export directory.
+     * Writes data to a CSV file.
      *
-     * @param array $data
+     * @param iterable $data
      * @return string
      * @throws FileSystemException
      */
-    protected function writeFile(array $data): string
+    protected function writeFile(iterable $data): string
     {
-        $rows = [];
-
-        if (!empty($data)) {
-            $headers = array_keys($data[0]);
-            $rows[] = $headers;
-
-            foreach ($data as $row) {
-                $csvRow = [];
-                foreach ($headers as $field) {
-                    $csvRow[] = $row[$field] ?? '';
-                }
-                $rows[] = $csvRow;
-            }
-        }
-
         $varPath = $this->directoryList->getPath(DirectoryList::VAR_DIR);
         $exportDir = $varPath . static::FILE_PATH;
 
@@ -113,7 +89,29 @@ abstract class ReportGeneratorAbstract implements ReportGeneratorInterface
         $fileName = date('Ymd_His') . '_' . static::FILE_NAME . '.csv';
         $filePath = $exportDir . '/' . $fileName;
 
-        $this->csvProcessor->saveData($filePath, $rows);
+        $fileHandle = $this->fileDriver->fileOpen($filePath, 'w');
+
+        $headersWritten = false;
+        $headers = [];
+
+        try {
+            foreach ($data as $row) {
+                if (!$headersWritten) {
+                    $headers = array_keys($row);
+                    $this->fileDriver->filePutCsv($fileHandle, $headers);
+                    $headersWritten = true;
+                }
+
+                $csvRow = [];
+                foreach ($headers as $field) {
+                    $csvRow[] = $row[$field] ?? '';
+                }
+
+                $this->fileDriver->filePutCsv($fileHandle, $csvRow);
+            }
+        } finally {
+            $this->fileDriver->fileClose($fileHandle);
+        }
 
         return $filePath;
     }

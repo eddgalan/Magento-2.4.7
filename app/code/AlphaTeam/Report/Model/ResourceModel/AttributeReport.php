@@ -18,14 +18,20 @@ class AttributeReport extends AbstractDb
     }
 
     /**
-     * Retrieves report data for a specific attribute and product type.
+     * Retrieves report data for a given attribute and product type in batches.
      *
      * @param string $attributeCode
      * @param string $productType
+     * @param int $batchSize
+     * @param int $lastEntityId
      * @return array
      */
-    public function getReportData(string $attributeCode, string $productType): array
-    {
+    public function getReportData(
+        string $attributeCode,
+        string $productType,
+        int $batchSize = 500,
+        int $lastEntityId = 0
+    ): array {
         $connection = $this->getConnection();
 
         $attribute = $connection->fetchRow(
@@ -48,10 +54,16 @@ class AttributeReport extends AbstractDb
             $select = $connection->select()
                 ->from(
                     ['cpe' => $this->getTable('catalog_product_entity')],
-                    ['sku', 'value' => $attributeCode]
+                    [
+                        'entity_id',
+                        'sku',
+                        'value' => $attributeCode
+                    ]
                 )
                 ->where('cpe.type_id = ?', $productType)
-                ->order('cpe.sku ASC');
+                ->where('cpe.entity_id > ?', $lastEntityId)
+                ->order('cpe.entity_id ASC')
+                ->limit($batchSize);
 
             return $connection->fetchAll($select);
         }
@@ -61,7 +73,10 @@ class AttributeReport extends AbstractDb
         $select = $connection->select()
             ->from(
                 ['cpe' => $this->getTable('catalog_product_entity')],
-                ['sku']
+                [
+                    'entity_id',
+                    'sku'
+                ]
             )
             ->joinLeft(
                 ['cpev' => $valueTable],
@@ -72,8 +87,44 @@ class AttributeReport extends AbstractDb
                 ['value']
             )
             ->where('cpe.type_id = ?', $productType)
-            ->order('cpe.sku ASC');
+            ->where('cpe.entity_id > ?', $lastEntityId)
+            ->order('cpe.entity_id ASC')
+            ->limit($batchSize);
 
         return $connection->fetchAll($select);
+    }
+
+    /**
+     * Generates batches of report data based on the provided attribute code and product type.
+     *
+     * @param string $attributeCode The attribute code used to filter the report data.
+     * @param string $productType The product type used to filter the report data.
+     * @param int $batchSize The number of records to include in each batch. Defaults to 500.
+     * @return \Generator Yields batches of report data as arrays.
+     */
+    public function getReportDataBatches(
+        string $attributeCode,
+        string $productType,
+        int $batchSize = 500
+    ): \Generator {
+        $lastEntityId = 0;
+
+        do {
+            $rows = $this->getReportData(
+                $attributeCode,
+                $productType,
+                $batchSize,
+                $lastEntityId
+            );
+
+            if (empty($rows)) {
+                break;
+            }
+
+            yield $rows;
+
+            $lastRow = end($rows);
+            $lastEntityId = (int)$lastRow['entity_id'];
+        } while (count($rows) === $batchSize);
     }
 }

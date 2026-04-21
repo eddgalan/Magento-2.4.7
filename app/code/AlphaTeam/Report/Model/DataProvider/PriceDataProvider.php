@@ -26,12 +26,19 @@ class PriceDataProvider implements DataProviderInterface
     }
 
     /**
-     * Collects and retrieves data from the attribute resource.
+     * Collects and yields data in batches from the attribute resource.
      *
-     * @return array
+     * @return iterable An iterable collection of data rows, each containing 'sku' and 'value' keys.
      */
-    public function collectData(): array
+    public function collectData(): iterable
     {
-        return $this->attributeResource->getReportData(self::ATTRIBUTE_CODE, self::PRODUCT_TYPE);
+        foreach ($this->attributeResource->getReportDataBatches(self::ATTRIBUTE_CODE, self::PRODUCT_TYPE) as $batch) {
+            foreach ($batch as $row) {
+                yield [
+                    'sku' => $row['sku'] ?? '',
+                    'value' => $row['value'] ?? ''
+                ];
+            }
+        }
     }
 }
